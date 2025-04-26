@@ -2,8 +2,6 @@
 
 Automate desktop interactions using AI vision & language capabilities.
 
-![Project Banner](https://repository-images.githubusercontent.com/803307245/b4eb447e-fdb7-4b00-baf5-0a3e66a5b492)
-
 ## Overview
 
 **LLM Desktop Automation** is a Python framework that empowers you to control your desktop UI by natural language prompts.
