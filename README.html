@@ -1,0 +1,390 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <title>LLM Desktop Automation with Gemini 2.5 Vision – README.md</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- Tailwind CSS v2.2.19 -->
+
+  <!-- Google Fonts: Inter -->
+  <style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7SUc.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7SUc.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7SUc.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7SUc.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7SUc.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7SUc.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7SUc.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7SUc.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7SUc.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7SUc.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7SUc.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7SUc.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7SUc.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7SUc.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7SUc.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+  <style>
+    html, body { font-family: 'Inter', sans-serif; background: #f9fafb; color: #1f2937;}
+    code, pre { font-family: 'Menlo', 'Monaco', 'Consolas', monospace; background: #f3f4f6; border-radius: 4px; }
+    pre { padding: 1em; overflow-x: auto;}
+    a { color: #2563eb; text-decoration: underline;}
+    .markdown-body h1 { font-size: 2.5rem; }
+    .markdown-body h2 { font-size: 1.7rem; margin-top: 1.5rem; }
+    .markdown-body h3 { font-size: 1.2rem; margin-top: 1.2rem; }
+    .markdown-body ul { list-style-type: disc; margin-left: 1.5rem;}
+    .markdown-body ol { list-style-type: decimal; margin-left: 1.5rem;}
+    .markdown-body table { border-collapse: collapse; margin: 1.5em 0;}
+    .markdown-body table, .markdown-body th, .markdown-body td { border: 1px solid #d1d5db; padding: .5em;}
+    .markdown-body th { background: #f3f4f6; }
+    .fa-gemini { color: #f48436; }
+  </style>
+</head>
+<body>
+<div class="max-w-4xl mx-auto px-5 py-10 bg-white shadow-md rounded-md markdown-body">
+  <h1 class="font-bold text-gray-800 mb-2 flex items-center">
+    <i class="fas fa-desktop text-blue-600 mr-3"></i>
+    LLM Desktop Automation with Gemini 2.5 Vision
+  </h1>
+  <p class="text-lg mb-2 text-gray-700">Automate desktop interactions using AI vision &amp; language capabilities.</p>
+
+  <div class="mb-6">
+    <img src="https://repository-images.githubusercontent.com/803307245/b4eb447e-fdb7-4b00-baf5-0a3e66a5b492" alt="Project Banner" class="mb-4 rounded shadow w-full" style="max-height:204px;object-fit:cover;">
+  </div>
+
+  <h2><i class="fas fa-bolt mr-2"></i>Overview</h2>
+  <p>
+    <strong>LLM Desktop Automation</strong> is a Python framework that empowers you to control your desktop UI by natural language prompts.
+    Harness the power of <strong>Gemini 2.5 Vision's API</strong> to visually understand your desktop, process commands, and perform intelligent mouse clicks using AI reasoning.
+  </p>
+
+  <h2><i class="fas fa-list-check mr-2"></i>Features</h2>
+  <ul class="mb-6">
+    <li><i class="fas fa-eye text-blue-500 mr-1"></i> Vision-powered recognition of desktop icons and windows</li>
+    <li><i class="fas fa-mouse-pointer text-green-500 mr-1"></i> Smart mouse movement &amp; click via <code>pyautogui</code></li>
+    <li><i class="fas fa-microchip text-purple-500 mr-1"></i> Natural language instructions powered by Gemini 2.5 LLM</li>
+    <li><i class="fas fa-shield-alt text-yellow-500 mr-1"></i> Built-in safety prompts before high-impact actions</li>
+    <li><i class="fas fa-laptop-code text-pink-400 mr-1"></i> Pythonic and readable code, ready to extend</li>
+  </ul>
+
+  <h2><i class="fas fa-image-polaroid mr-2"></i>How It Works</h2>
+  <ol class="mb-6">
+    <li>User types a command: <span class="bg-gray-100 px-2 py-1 rounded font-mono">Open Recycle Bin</span></li>
+    <li>Screenshot of desktop is taken</li>
+    <li>Screenshot is sent to <strong>Gemini 2.5 Vision</strong> for detection of clickable elements</li>
+    <li>Structured screen analysis (elements + coordinates) is returned</li>
+    <li>LLM matches user instruction to visual data, selects the target</li>
+    <li>Python script uses <code>pyautogui</code> to move mouse and click the target</li>
+    <li>(Optional) User is prompted to confirm risky actions</li>
+  </ol>
+
+  <h2><i class="fas fa-download mr-2"></i>Installation</h2>
+  <pre><code># Clone the repository
+git clone https://github.com/YOUR_USERNAME/llm-desktop-automation.git
+cd llm-desktop-automation
+
+# Install Python dependencies (Python 3.8+ recommended)
+pip install -r requirements.txt
+</code></pre>
+
+  <h2><i class="fas fa-cogs mr-2"></i>Configuration</h2>
+  <ol>
+    <li>
+      <strong>Set up Gemini API key:</strong>
+      <ul>
+        <li>Sign up for Gemini API and get your key: <a href="https://aistudio.google.com/app/apikey" target="_blank">Get API Key</a></li>
+        <li>Create a <code>.env</code> file in your project root:
+          <pre><code>GEMINI_API_KEY=your_gemini_2.5_vision_api_key_here</code></pre>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <strong>Adjust permissions:</strong> This script requires permission to capture your screen and control your mouse.
+    </li>
+  </ol>
+
+  <h2><i class="fas fa-play-circle mr-2"></i>Usage Example</h2>
+  <pre><code>python desktop_automation.py
+</code></pre>
+  <p>
+    When prompted, type commands like:
+    <code>Click the Chrome icon</code> <br>
+    <code>Open Notepad</code> <br>
+    <code>Open the Recycle Bin</code>
+  </p>
+
+  <h2><i class="fas fa-code mr-2"></i>Minimal Example</h2>
+  <pre><code class="language-python">import os, pyautogui
+from PIL import ImageGrab
+import google.generativeai as genai
+# ... Set up Gemini as in documentation
+
+screenshot = ImageGrab.grab()
+# Send screenshot and prompt to Gemini
+# Parse result, get coordinates
+pyautogui.moveTo(x, y)
+pyautogui.click()
+</code></pre>
+
+  <h2><i class="fas fa-shield-halved mr-2"></i>Security Warning</h2>
+  <div class="p-4 my-3 bg-red-50 border-l-4 border-red-400 text-red-800 rounded">
+    <i class="fas fa-exclamation-circle"></i>
+    <b>Warning:</b> Running this code gives the AI limited control of your mouse and keyboard.
+    <br>
+    Only use in safe, controlled environments. Carefully review all actions before confirming.
+  </div>
+
+  <h2><i class="fas fa-cube mr-2"></i>Project Structure</h2>
+  <pre><code>llm-desktop-automation/
+├─ desktop_automation.py
+├─ requirements.txt
+└─ README.md
+</code></pre>
+
+  <h2><i class="fas fa-laptop-code mr-2"></i>Dependencies</h2>
+  <ul>
+    <li><code>python-dotenv</code></li>
+    <li><code>google-generativeai</code></li>
+    <li><code>pyautogui</code></li>
+    <li><code>pillow</code> (PIL)</li>
+  </ul>
+
+  <h2><i class="fas fa-hammer mr-2"></i>Extending</h2>
+  <p>You can add:</p>
+  <ul>
+    <li>Voice command input via <code>SpeechRecognition</code></li>
+    <li>Better vision models with OpenCV, YOLO, or LLaVA</li>
+    <li>Self-verification for critical clicks</li>
+  </ul>
+
+  <h2><i class="fas fa-circle-info mr-2"></i>Troubleshooting</h2>
+  <ul>
+    <li>Errors about permissions? See your OS's privacy/accessibility settings for screen and input control</li>
+    <li>Mouse not clicking where expected? Check your display scaling and resolution settings</li>
+    <li>Gemini errors? Ensure API key is correct and you have quota</li>
+  </ul>
+
+  <h2><i class="fas fa-person-circle-question mr-2"></i>FAQ</h2>
+  <details open>
+    <summary class="font-semibold mb-2">Is this production ready?</summary>
+    <p>No – it is a research/prototype tool. Use in controlled environments only.</p>
+  </details>
+  <details>
+    <summary class="font-semibold mb-2">Can I use other LLMs?</summary>
+    <p>Yes, via API adjustments, but Gemini 2.5 Vision recommended for best multi-modal performance.</p>
+  </details>
+  <details>
+    <summary class="font-semibold mb-2">Can it close popups or interact with notifications?</summary>
+    <p>If they appear in the screenshot, and are visually distinct, yes.</p>
+  </details>
+
+  <h2><i class="fas fa-gavel mr-2"></i>License</h2>
+  <p>
+    This project is <strong>MIT Licensed</strong>.<br>
+    <span class="text-xs text-gray-500">Copyright © 2025 Dalibor JONIC, MSc</span>
+  </p>
+  <pre><code>MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</code></pre>
+
+  <div class="mt-10 mb-3 text-center">
+    <span class="text-gray-500 text-xs"><i class="fas fa-gem text-blue-400"></i>
+      Powered by Gemini 2.5 Vision · Built for research and innovation.
+    </span>
+  </div>
+</div>
+
+
+
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDruXgG7jmt5Y595hVzkO25lLAZMG59k77LktX9aXerNboxxn8XPx1u1ed5l3bbZbiPAGttwDqyRV0SsPzChOsJHo0uAPRB2nsxC6dCdLPeMc8YVNczaHvkq3FKWZXQm4ZKKFhReiC3AdF6A0k%2FYasASq4udxUCKVaiCujowRkao%2BG7GUoVGMWx2UqpEsDOIcrxyQfFWYtpccrbqZmsfdhBs8b1UQ2iEl4RYhIWY0nxvqE%2BODQezEYe14Xp%2FKkwAHyXAmV9whXktFEVDc%2BggLo%2F14m4mSdGGklthYuPDsrrviZO7x33XKr8f0ewi1N7P2Y2tlzKo8SoCGaE5X7eJjiLq5g%2BjZX%2FCghRzsH7z5TjakiWCE6R1KsXhSNeDCpxyLz60uDatbumwaBBYuIQOZKiXyzbJGCOOLOf8fSIKkzKxaDERHa65qe%2Fzfm6HpV91rKDafpZ1DPB%2F%2FQVCvfbP6K%2FRaLO%2FF9v8NijUrb7QJp1nBW4GyxC0GdRzs4MWcLG%2Fpog6zwxmahboCgBMz4u%2B21vQ%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDruXgG7jmt5Y595hVzkO25lLAZMG59k77LktX9aXerNboxxn8XPx1u1ed5l3bbZbiPAGttwDqyRV0SsPzChOsJHo0uAPRB2nsxC6dCdLPeMc8YVNczaHvkq3FKWZXQm4ZKKFhReiC3AdF6A0k/YasASq4udxUCKVaiCujowRkao+G7GUoVGMWx2UqpEsDOIcrxyQfFWYtpccrbqZmsfdhBs8b1UQ2iEl4RYhIWY0nxvqE+ODQezEYe14Xp/KkwAHyXAmV9whXktFEVDc+ggLo/14m4mSdGGklthYuPDsrrviZO7x33XKr8f0ewi1N7P2Y2tlzKo8SoCGaE5X7eJjiLq5g+jZX/CghRzsH7z5TjakiWCE6R1KsXhSNeDCpxyLz60uDatbumwaBBYuIQOZKiXyzbJGCOOLOf8fSIKkzKxaDERHa65qe/zfm6HpV91rKDafpZ1DPB//QVCvfbP6K/RaLO/F9v8NijUrb7QJp1nBW4GyxC0GdRzs4MWcLG/pog6zwxmahboCgBMz4u+21vQ=";
+    </script>
+    </body></html>
