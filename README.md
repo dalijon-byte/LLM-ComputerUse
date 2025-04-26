@@ -75,6 +75,52 @@ screenshot = ImageGrab.grab()
 pyautogui.moveTo(x, y)
 pyautogui.click()
 ```
+## Advanced Template-Based Workflow
+
+This project now supports two different approaches to desktop automation:
+
+1. **Direct Coordinate-Based Automation** (original approach)
+2. **Template Matching-Based Automation** (new approach)
+
+### Template Matching Workflow
+
+The template-based approach provides greater reliability across different screen resolutions and window positions:
+
+1. **Screen Analysis**: Capture the screen and send to Gemini 2.5 Vision
+2. **Element Extraction**: Gemini identifies UI elements and returns their bounding boxes
+3. **Template Creation**: Small images of each UI element are cropped and saved
+4. **Template Matching**: When actions are needed, PyAutoGUI looks for these templates on screen
+5. **Action Execution**: Once found, the system can click, type, drag, etc.
+
+### Advanced Features
+
+The system now supports these advanced interactions:
+
+- `click(start_box='[x1, y1, x2, y2]')` - Single left click
+- `left_double(start_box='[x1, y1, x2, y2]')` - Double left click
+- `right_single(start_box='[x1, y1, x2, y2]')` - Single right click
+- `drag(start_box='[x1, y1, x2, y2]', end_box='[x3, y3, x4, y4]')` - Drag and drop
+- `hotkey(key='ctrl+c')` - Press keyboard shortcuts
+- `type(content='Hello world\n')` - Type text (use '\n' for Enter)
+- `scroll(start_box='[x1, y1, x2, y2]', direction='down')` - Scroll in specified direction
+- `wait()` - Pause for 5 seconds
+- `finished()` - Mark task as complete
+- `call_user()` - Request human assistance
+
+### Usage Example
+
+```python
+# Template-based automation
+python template_automation.py
+
+# When prompted:
+# "What would you like me to do?"
+
+# Try these commands:
+"Open Google Chrome"
+"Create a new text document"
+"Move the calculator to the right side of the screen"
+```
 
 ## Security Warning
 
@@ -84,10 +130,17 @@ pyautogui.click()
 ## Project Structure
 
 ```
-llm-desktop-automation/
-├─ desktop_automation.py
-├─ requirements.txt
-└─ README.md
+LLM-ComputerUse/
+├── README.md
+├── desktop_automation.py (original approach)
+├── template_automation.py (new template-based approach)
+├── requirements.txt
+├── templates/ (directory for extracted templates)
+└── utils/
+    ├── __init__.py
+    ├── screen_capture.py
+    ├── element_extraction.py
+    └── action_execution.py
 ```
 
 ## Dependencies
@@ -110,6 +163,28 @@ You can add:
 -   Errors about permissions? See your OS's privacy/accessibility settings for screen and input control
 -   Mouse not clicking where expected? Check your display scaling and resolution settings
 -   Gemini errors? Ensure API key is correct and you have quota
+
+## Potential Future Enhancements
+
+Here are some additional enhancements you could consider:
+
+1. **Template Database**: Store templates with metadata for reuse across sessions
+2. **Visual Feedback**: Show bounding boxes on detected elements for user verification
+3. **Action Sequences**: Record and replay multiple actions as macros
+4. **Error Recovery**: Implement retry mechanisms when template matching fails
+5. **Context Awareness**: Maintain a model of desktop state between actions
+6. **Voice Integration**: Add voice control capabilities for hands-free operation
+7. **Application-Specific Templates**: Pre-train on common applications like Office, browsers
+
+## Implementation Tips
+
+1. **Confidence Parameter**: PyAutoGUI's `locateCenterOnScreen` function has a `confidence` parameter (requires OpenCV). Start with 0.8 and adjust based on reliability.
+
+2. **Template Size**: Smaller templates may be less distinctive but find more matches. Larger templates are more specific but might fail with small UI changes.
+
+3. **Error Handling**: Template matching can fail for many reasons - implement good error handling and fallback mechanisms.
+
+4. **Security Considerations**: Continue to prioritize safety checks, especially with broader action capabilities. 
 
 ## FAQ
 
